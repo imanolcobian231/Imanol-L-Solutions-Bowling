@@ -7,7 +7,7 @@ function tirar() {
     let tiros = [];
     let restantes = 10;
     for (let index = 0; index < 2 && restantes > 0; index++) {
-        tiros[index] = Math.floor(Math.random() * restantes) + 1;
+        tiros[index] = Math.floor(Math.random() * (restantes + 1));
         restantes -= tiros[index];
         console.log(tiros[index]);
         if (tiros[index] === 10 && index === 0) {
