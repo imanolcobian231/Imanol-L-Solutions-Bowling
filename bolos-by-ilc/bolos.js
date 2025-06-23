@@ -2,7 +2,8 @@ let turnosRestantes = 10;
 let partida = [];
 let suma = 0;
 
-do {
+function tirar() {
+    do {
     let tiros = [];
     let restantes = 10;
     for (let index = 0; index < 2 && restantes > 0; index++) {
@@ -30,6 +31,10 @@ if (ultimos[0] === 10) {
     partida.push([10]);
 }
 
+}
+
+function sumarTiros() {
+    
 for (let i = 0; i < 10; i++) {
     let sumaDeTiros = partida[i][0] + (partida[i][1] ?? 0);
     let bonus = 0;
@@ -41,11 +46,11 @@ for (let i = 0; i < 10; i++) {
         } else if (partida[i + 2]) {
             bonus += partida[i + 2][0] ?? 0;
         }
-        console.log("Turno", i, "Tiros", partida[i], "STRIKE", "Puntos de turno", sumaDeTiros + bonus);
+        console.log("Turno", i, "Tiros","[---X--]", "STRIKE", "Puntos de turno", sumaDeTiros + bonus);
         suma += sumaDeTiros + bonus;
     } else if (sumaDeTiros === 10) {
         bonus += partida[i + 1]?.[0] ?? 0;
-        console.log("Turno", i, "Tiros", partida[i], "SPARE", "Puntos de turno", sumaDeTiros + bonus);
+        console.log("Turno", i, "Tiros", "[",partida[i][0],",/","]  " ,"SPARE", "Puntos de turno", sumaDeTiros + bonus);
         suma += sumaDeTiros + bonus;
     } else {
         console.log("Turno", i, "Tiros", partida[i], "Puntos de turno", sumaDeTiros);
@@ -53,4 +58,9 @@ for (let i = 0; i < 10; i++) {
     }
 }
 
-console.log("Puntaje total", suma);
+console.log("Puntaje total", suma)
+}
+
+tirar()
+sumarTiros()
+
